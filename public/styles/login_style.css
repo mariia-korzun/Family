@@ -1,0 +1,108 @@
+    * {
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-size: 20px;
+    }
+    
+    .container {
+        height: 100vh;
+    }
+    
+    div.img-logo {
+        text-align: center;
+    }
+    
+    div.img-logo>img {
+        height: 25vh;
+        width: 100%;
+        object-fit: contain;
+
+    }
+    
+    div.login {
+        width: 50vw;
+        margin: auto;
+        max-width: 350px;
+    }
+    
+    form.input-container {
+        width: 90%;
+        max-width: 200px;
+        margin: auto;
+        background-color: #ffffff;
+    }
+    
+    form.input-container>div {
+        border: 1px solid black;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+    }
+    
+    form.input-container>div>img {
+        width: 17px;
+        height: 17px;
+        vertical-align: middle;
+    }
+    
+    input[type=password],
+    input[type=email] {
+        padding: 5px 5px;
+        width: calc(100% - 20px);
+        outline: none;
+        border: none;
+        background: none;
+    }
+    
+    input[type=email]:invalid {
+        border: 1px solid rgb(233, 9, 9);
+    }
+    
+    input[type=submit] {
+        display: block;
+        width: 100%;
+        margin-top: 15px;
+        padding: 5px 0px;
+        border-radius: 5px;
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        appearance: button;
+        background-color: dodgerblue;
+        cursor: pointer;
+        border: 1px solid black;
+        color: #ffffff;
+        font-weight: 600;
+    }
+    
+    #sign_up {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        border-radius: 0px;
+        text-align: center;
+        border: none;
+    }
+    
+    #sign_up>a {
+        color: blue;
+        text-decoration: none;
+        font-size: 15px;
+        vertical-align: top;
+    }
+    
+    #bottom_img {
+        height: calc(75vh - 182px);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-end;
+    }
+    
+    #bottom_img>img {
+        height: 100%;
+        max-height: 360px;
+        flex-basis: auto;
+    }

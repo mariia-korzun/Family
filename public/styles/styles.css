@@ -1,0 +1,64 @@
+body {
+    background-image: url("/images/see.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
+    background-position: center top;
+   
+}
+
+   @media (max-width: 767px) {
+        body {
+            background-image: url("/images/images1.jpg");
+        }
+    }
+    
+    @media (min-width: 768px) and (max-width: 991px) {
+        body {
+            background-image: url("/images/images1.jpg");
+        }
+    }
+    
+    @media (min-width: 991px) and (max-width: 1199px) {
+        body {
+            background-image: url("/images/images.jpg");
+        }
+    }
+    
+    @media (min-width: 1200px) {
+        body {
+            background-image: url("/images/1.jpg");
+        }
+    }
+    
+
+    p.style1 {
+        color: rgb(9, 82, 3);
+        font-size: 20px;
+    }
+    
+    p {
+        color: #c51576
+    }
+    
+    h1 {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: cadetblue;
+    }
+    
+    table,
+    td,
+    th {
+        border: 1px solid black;
+        border-collapse: collapse;
+        background-color: burlywood;
+    }
+    
+    #th01 th:nth-child(2) {
+        padding: 50px;
+    }
+    
+    #th01 td {
+        background-color: aqua;
+    }
+ 
