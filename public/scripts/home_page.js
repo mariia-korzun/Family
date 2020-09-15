@@ -30,7 +30,7 @@ function postFiles() {
     for (let i = 0; i < this.files.length; i++) {
         if (!verifyTypeOfFiles(establishedTypes, this.files[i])) {
             let error = document.createElement('p')
-            error.innerText = 'Extention of ${this.files[i].name} is not allowed'
+            error.innerText = `Extention of ${this.files[i].name} is not allowed`
             let errorContainer = document.getElementById('errors_of_content')
             errorContainer.appendChild(error)
         }
