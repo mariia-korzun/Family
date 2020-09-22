@@ -37,14 +37,27 @@ function postFiles() {
         else {
             let fileWrapper = new FileWrapper(this.files[i])
             postData.fileWrappers.push(fileWrapper)
-            let request = new XMLHttpRequest()
-            request.upload.onloadend = () => {
-                if (this.status === 200) { 
-
+            fetch('/api/asset', {
+                method: 'POST',
+                credentials: 'same-origin',
+                body: fileWrapper.file
+            }).then(response => {
+                if (!(response.status == 201)) {
+                    throw 'Oops! Something got broken'
                 }
-            }
-            request.open('POST', '/api/asset', true)
-            request.send(fileWrapper.file)
+                else {
+                    return response.json()
+                }
+            }).then(body => {
+                if (!body) {
+                    throw 'Oops! Body of response is undefined'
+                }
+                else {
+                    fileWrapper.id = body.id
+                    fileWrapper.path = body.path
+                    updateImagePreview(fileWrapper.path)
+                }
+            }).catch(error => { console.log(error); alert(error) })
         }
     }
 }
@@ -58,7 +71,7 @@ class FileWrapper {
         this.file = file
     }
 }
-window.onload = ()=>{document.getElementById('input_load_img').onchange = postFiles}
+window.onload = () => { document.getElementById('input_load_img').onchange = postFiles }
 
 
 function verifyTypeOfFiles(establishedTypes, file) {
@@ -68,29 +81,30 @@ function verifyTypeOfFiles(establishedTypes, file) {
     return true
 }
 
-function updateImagePreview(url) {
-    let deletepreviewImage = document.createElement('button')
-    deletepreviewImage.className = 'delete_view_image'
-    deletepreviewImage.addEventListener('click', deletePreviewAndFileWrapper)
-
+function updateImagePreview(path) {
     let previewImage = document.createElement('img')
     previewImage.className = 'preview_image'
-    previewImage.setAttribute('src', url)
+    previewImage.setAttribute('src', path)
+
+    let deletePreviewImageButton = document.createElement('img')
+    deletePreviewImageButton.className = 'delete_view_image_button'
+    deletePreviewImageButton.setAttribute('src', '/images/assets/delete-button.svg')
+    deletePreviewImageButton.onclick = deletePreviewAndFileWrapper
 
     let previewWrapper = document.createElement('div')
     previewWrapper.className = 'preview_wrapper'
     previewWrapper.appendChild(previewImage)
-    previewWrapper.appendChild(deletepreviewImage)
+    previewWrapper.appendChild(deletePreviewImageButton)
 
     let containerOfPreviews = document.getElementById('preview_of_content')
     containerOfPreviews.appendChild(previewWrapper)
 }
 function deletePreviewAndFileWrapper() {
     let previewWrapper = this.parentElement
-    let url = previewWrapper.firstElementChild.getAttribute('src')
+    let path = previewWrapper.firstElementChild.getAttribute('src')
     for (i = 0; i < postData.fileWrappers.length; i++) {
-        if (postData.fileWrappers[i].url === url) {
-            postData.fileWrappers = postData.fileWrappers.slice(i, 1)
+        if (postData.fileWrappers[i].path === path) {
+            postData.fileWrappers.splice(i, 1)
             previewWrapper.remove()
         }
     }
