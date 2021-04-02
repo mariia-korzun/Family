@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Family</title>
     <link rel="stylesheet" href="/styles/nav_bar_style.css">
+    <link rel="stylesheet" href="/styles/collections.css">
     <link rel="stylesheet" href="/styles/home_page_style.css">
-    <script type="text/javascript" src="/scripts/nav_bar.js" ></script>
-    <script type="text/javascript" src="/scripts/home_page.js" ></script>
+    <link rel="stylesheet" href="/styles/variables.css">
+
+
+
 
 </head>
 
@@ -21,11 +24,14 @@
             <div id="nav_bar_items">
                 <a class="a_nav_bar" href="">
                     <img class="nav_bar_img" src="/images/assets/089-geography.svg">
-                </a><a class="a_nav_bar" href="">
-                    <img class="nav_bar_img" src="/images/assets/035-social media.svg">
-                </a><a class="a_nav_bar" href="">
+                </a>
+                <a class="a_nav_bar" href="/html/followers.html">
+                    <img class="nav_bar_img followers_link" src="/images/assets/035-social media.svg">
+                </a>
+                <a class="a_nav_bar" href="">
                     <img class="nav_bar_img" src="/images/assets/023-envelopes.svg">
-                </a><a class="a_nav_bar" href="">
+                </a>
+                <a class="a_nav_bar" href="">
                     <img class="nav_bar_img" src="/images/assets/094-notification bell.svg">
                 </a>
             </div>
@@ -34,7 +40,9 @@
                     <img class="nav_bar_img" src="/images/assets/039-user list.svg">
                 </div>
                 <div id="nav_bar_log_out_expended">
-                    <img class="nav_bar_img" src="/images/assets/053-next.svg">
+                    <a href="/logout" class="a_nav_bar">
+                        <img class="nav_bar_img" src="/images/assets/053-next.svg">
+                    </a>
                 </div>
             </div>
         </div>
@@ -46,8 +54,8 @@
                 </a>
             </div>
             <div>
-                <a class="a_nav_bar a_nav_bar_expended" href="">
-                    <img class="nav_bar_img" src="/images/assets/035-social media.svg">
+                <a class="a_nav_bar a_nav_bar_expended" href="/html/followers.html">
+                    <img class="nav_bar_img followers_link" src="/images/assets/035-social media.svg">
                     <span class="span_expended_nav_bar">Friends</span>
                 </a>
             </div>
@@ -58,26 +66,32 @@
                 </a>
             </div>
             <div>
-                <a class="a_nav_bar a_nav_bar_expended" href="">
+                <a class="a_nav_bar a_nav_bar_expended" href="/logout">
                     <img class="nav_bar_img" src="/images/assets/053-next.svg">
                     <span class="span_expended_nav_bar">Log out</span>
                 </a>
             </div>
-           
+
         </div>
 
     </div>
-    <div class="container">
-        <div class="profile_menu profile_flex">
-            <div id="user_info">
+    <div class="container main_bg_color">
+        <div id="profile_menu" class="profile_menu profile_flex">
+            <div id="user_info" class="content_block content_bg_color">
                 <h4 id="name">Name</h4>
-                <img id="profile_photo" src="https://www.w3schools.com/w3images/avatar3.png" alt="profile photo">
+                <div class="profile_photo_container" id="profile_photo_container">
+                    <img id="profile_photo" alt="profile photo">
+                    <label id="add_profile_photo_button" for="profile_photo_input" class="profile_photo_button ">
+                        <img src="/images/assets/add-button-with-plus-symbol-in-a-black-circle.svg" alt="Add new photo" class="img_of_profile_photo_button">
+                    </label>
+                    <input type="file" id="profile_photo_input" accept="image/*" class="display_toggle">
+                </div>
                 <hr>
                 <div class="user_info_title">
                     <span class="color_of_user_info_label" id="birthday_label">Birthday:</span>
                     <span id="user_birthday">14.03.1993</span>
                 </div>
-                <div class="user_info_title">
+                <!-- <div class="user_info_title">
                     <span class="color_of_user_info_label" id="current_city_label">Current city:</span>
                     <span id="user_current_city">Riga</span>
                 </div>
@@ -88,35 +102,49 @@
                 <div class="user_info_title">
                     <span class="color_of_user_info_label" id="relationship_label">Relationship:</span>
                     <span id="user_relationship">Mariia Korzun</span>
+                </div> -->
+            </div>
+
+            <div id="user_content">
+                <div id="button_container" class="follow_button_container content_block content_bg_color display_toggle">
+                    <button id="follow_button" class="button" type="button"></button>
+                    <button id="followers_button" class="button" type="button">Followers</button>
                 </div>
             </div>
-            <div id="user_content"></div>
         </div>
-        <div class="profile_feed profile_flex">
-            <div id="make_new_post">
-              <img class="photo_avatar_small" src="https://www.w3schools.com/w3images/avatar3.png">
-              <div  id="container_text_of_post">
-                  <div id="text_of_post" contenteditable="true" onfocus="onfocusPlaceholder()" onblur="onblurPlaceholder()" oninput="checkContent(this) "></div>
-                  <div id = "placeholder">What's new?</div>
-              </div>    
-              <hr>  
-              <div id="preview_of_content"> </div>
-              <div id = "errors_of_content"></div>
-              <div id="load_content">
-                  <div class="load_content_button">
-                      <input type="file" name="input_load_img" id="input_load_img" accept="image/*" multiple="true" >
-                      <label for="input_load_img">
-                          <img class="load_icon" src="/images/assets/011-photos.svg">
-                      </label>
-                  </div>
-              </div>
+        <div id="profile_feed" class="profile_feed profile_flex">
+            <div id="make_new_post" class="content_block content_bg_color">
+                <img class="photo_avatar_small" id="photo_avatar_small">
+                <div id="container_text_of_post">
+                    <div id="text_of_post" contenteditable="true" onfocus="onfocusPlaceholder()" onblur="onblurPlaceholder()"></div>
+                    <div id="placeholder">What's new?</div>
+                </div>
+                <hr>
+                <div id="preview_of_content" class="preview_of_content"> </div>
+                <div id="errors_of_content"></div>
+                <div id="post_conrols">
+                    <div id="upload_buttons_container">
+                        <div class="upload_button">
+                            <input type="file" name="input_upload_img" id="input_upload_img" accept="image/*" multiple="true">
+                            <label for="input_upload_img">
+                             <img class="post_controls_icon" src="/images/assets/011-photos.svg">
+                         </label>
+                        </div>
+                    </div>
+                    <div id="submit_button_container_id" class="submit_button_container_class">
+                        <button type="button" id="submit_button" class="button" value="Post" onclick="post()">Post</button>
+                    </div>
+                </div>
             </div>
-            <div class="post"></div>
+            <div class="posts" id="all_posts_container"></div>
         </div>
     </div>
     <div class="footer">
     </div>
 
+    <script type="text/javascript" src="/scripts/nav_bar.js"></script>
+    <script type="text/javascript" src="/scripts/home_page.js"></script>
+
 </body>
 
-</html> 
+</html>

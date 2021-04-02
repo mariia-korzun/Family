@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main{
+    padding:15px;
+}
+.photo_avatar_small {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    vertical-align: top;
+    object-fit: cover;
+}
+
+.followers_container {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.submit_button {
+    width: 100px
+}
+
+a:visited,
+a:link {
+    color: #000;
+    text-decoration: none;
+}
+
+.container {
+    width: 390px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    min-height: calc(100vh - 70px);
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}

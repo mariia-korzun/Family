@@ -44,10 +44,16 @@ passport.deserializeUser(function (id, done) {
 passportRouter.post('/login', passport.authenticate('local', {
     failureRedirect: '/html/login.html',
     session: true
-}), (req,res)=>{res.redirect('/html/home.html')})
+}), (req, res) => { res.redirect('/html/home.html') })
+
+
+passportRouter.post('/api/user/create', passport.authenticate('local', {
+    failureRedirect: '/html/registration.html',
+    session: true
+}), (req, res) => { res.redirect('/html/home.html') })
 // , (req, res) => { res.redirect('/api/user/' + req.user.id) })
 
-passportRouter.post('/logout', (req, res) => {
+passportRouter.get('/logout', (req, res) => {
     req.logout()
     console.log(req.user)
     res.redirect('/login')

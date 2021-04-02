@@ -114,3 +114,6 @@ server/config/database_config.json
 /sessions
 #LiveServer Config 
 .vscode/settings.json
+
+#User's assets
+/server/user_assets/

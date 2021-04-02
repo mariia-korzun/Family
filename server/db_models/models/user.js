@@ -8,7 +8,10 @@ module.exports = (sequelize, DataTypes) => {
     dataOfBirth: { allowNull: false, type: DataTypes.DATEONLY }
   }, {
     scopes: {
-      withoutEmailAndPassword: { attributes: { exclude: ['password', 'email'] } }
+      withoutEmailPasswordCreatedUpdated: {
+        attributes:
+          { exclude: ['password', 'email', 'createdAt', 'updatedAt'] }
+      }
     },
     tableName: 'User'
   });
@@ -16,7 +19,10 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     // User.hasMany(models.Follow, { as: 'follow', foreignKey: 'follower' })
     // User.hasMany(models.Follow, { as: 'follower', foreignKey: 'follow' })
+    User.hasMany(models.Post, { foreignKey: 'owner' })
+    User.hasMany(models.Post, { foreignKey: 'recipient' })
     User.hasMany(models.Asset, { as: 'Assets', foreignKey: 'owner' })
+    User.hasMany(models.Album, { as: 'Albums', foreignKey: 'owner' })
     User.belongsToMany(User, { as: 'Follows', through: models.Follow, foreignKey: 'follower', otherKey: 'follow' })
     User.belongsToMany(User, { as: 'Followers', through: models.Follow, foreignKey: 'follow', otherKey: 'follower' })
   };

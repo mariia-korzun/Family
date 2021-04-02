@@ -3,7 +3,7 @@
     box-sizing: border-box;
 }
 #nav_bar {
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     border: 1px solid darkblue;
@@ -13,6 +13,7 @@
 }
 #collapsed_nav_bar {
     display: flex;
+    font-size: 0;
 }
 #expended_nav_bar{
     display: none;

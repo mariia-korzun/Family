@@ -3,29 +3,33 @@
     box-sizing: border-box;
 }
 
+body {
+    font-size: 16px;
+}
+
 .container {
-    margin-top: 42px;
+    /* margin-top: 42px; */
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-around;
     align-items: flex-start;
     border: 1px solid black;
+    /* padding-top: 15px; */
+    padding-bottom: 15px;
+    min-height: calc(100vh - 40px);
 }
 
 .profile_menu {
     width: calc(40% - 10px);
-    border: 1px solid black;
-    max-width: 300px;
+    /* max-width: 300px; */
 }
 
 .profile_feed {
     width: calc(60% - 10px);
-    border: 1px solid black;
     padding: 3px;
 }
 
-#make_new_post {
-}
+#make_new_post {}
 
 .profile_flex {
     display: flex;
@@ -33,21 +37,44 @@
     align-items: stretch;
 }
 
-#user_info {
-    border: 1px solid black;
-}
-
 #name {
     font-size: 20px;
+    text-align: center;
 }
 
 .color_of_user_info_label {
     color: #828282;
 }
 
+.profile_photo_container {
+    position: relative;
+    text-align: center;
+    height: 0;
+    padding-top: 100%;
+}
+
+.profile_photo_button {
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    bottom: 0;
+    left: 50%;
+    display: none;
+}
+
+.img_of_profile_photo_button {
+    width: 100%;
+    position: relative;
+}
+
 #profile_photo {
     width: 100%;
+    height: 100%;
     border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
 }
 
 .photo_avatar_small {
@@ -55,6 +82,7 @@
     height: 30px;
     border-radius: 50%;
     vertical-align: top;
+    object-fit: cover;
 }
 
 #container_text_of_post {
@@ -63,6 +91,7 @@
     position: relative;
     display: inline-block;
     margin-bottom: 30px;
+    z-index: 0;
 }
 
 #text_of_post {
@@ -76,53 +105,146 @@
     color: #5e5b5b;
     z-index: -1;
 }
-#load_content{
+
+#post_conrols {
     font-size: 0;
 }
-.load_content_button{
-height: 20px;
-width: 20px;
-display: inline-block;
-margin:5px 5px 0px 5px;
+
+.submit_button_container_class {
+    display: flex;
+    justify-content: flex-end;
 }
-#input_load_img{
+
+.follow_button_container {
+    text-align: center;
+}
+
+.button {
+    width: 50%;
+    max-width: 150px;
+}
+
+.button:disabled {
+    opacity: 0.3;
+    background-color: black;
+}
+
+.display_toggle {
     display: none;
 }
-.load_content_button>label{
+
+
+/* .upload_buttons_container{
+    
+} */
+
+.upload_button {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    margin: 5px 5px 0px 5px;
+    cursor: pointer;
+}
+
+.upload_button>label {
     display: inline-block;
     width: 100%;
     height: 100%;
 }
-.load_icon{
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
+
+#input_upload_img {
+    display: none;
 }
 
+.post_controls_icon {
+    width: 100%;
+    height: 100%;
+}
+
+.username_post {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.username_post a:visited,
+.username_post a:link {
+    text-decoration: none;
+    color: rgb(38, 62, 129);
+}
+
+.preview_of_content {
+    margin-top: 15px;
+}
+
+.preview_wrapper {
+    display: inline-block;
+    height: 70px;
+    width: 60px;
+    position: relative;
+    border: 1px solid black;
+    margin-left: 3px;
+    margin-right: 3px;
+    overflow: hidden;
+}
+
+.preview_image {
+    width: 100%;
+    object-fit: contain;
+}
+
+.delete_view_image_button {
+    border-radius: 50%;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.post_asset_container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.asset_view_img {
+    width: calc(50% - 10px);
+    /* height: 250px; */
+    border: 0.5px solid rgb(146, 151, 153);
+    object-fit: contain;
+    max-height: 250px;
+    margin: 5px;
+}
 
 @media screen and (max-width:600px) {
-    .container{
+    .container {
         flex-direction: column;
     }
-    .profile_menu{
+    .profile_menu {
         width: 100%;
         max-width: 100%;
     }
-    #profile_photo {
+    .profile_photo_container {
         width: 50%;
+        padding-top: 50%;
+        margin: auto;
     }
     .profile_feed {
         width: 100%
     }
 }
 
-
-@media screen and (min-width:700px) {
+@media screen and (min-width:750px) {
     .profile_menu {
-        width: 268px;
+        width: 288px;
     }
-   
     .profile_feed {
-        width: calc(100% - 288px);
+        width: calc(100% - 308px);
+    }
+    .asset_view_img {
+        width: calc(30% - 10px);
+        /* height: 330px; */
     }
 }

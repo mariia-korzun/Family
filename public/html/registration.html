@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Family</title>
+    <meta name="description" content="Registration to Family">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles/registration.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <div class="img_logo_cintainer">
+                <img class="img_logo" src="/images/assets/family.svg">
+            </div>
+        </header>
+        <section id="form_registration_container" class="form_registration_container">
+            <form class="registration_form" action="/api/user/create" method="POST" id="form_registration" enctype="application/x-www-form-urlencoded">
+                <label for="first_name">First name:</label><br>
+                <input type="text" id="first_name" class="registration_input" name="firstName" required><br>
+                <label for="last_name">Last name:</label><br>
+                <input type="text" id="last_name" class="registration_input" name="lastName" required><br>
+                <label for="birthday">Date of birth:</label><br>
+                <input type="date" id="birthday" class="registration_input" name="birthday" required><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" class="registration_input" name="email" required><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" class="registration_input" name="password" required><br>
+                <!-- <label for="photo">Photo of profile:</label><br> -->
+                <!-- <label for="photo" class="upload_button">
+                    <img class="upload_icon" src="/images/assets/011-photos.svg">
+                </label>
+                <input type="file" id="photo" class="file_input" name="photo" accept="image/*" multiple="true" required> -->
+                <button type="submit" class="submit_button" form="form_registration">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- <script src=""></script>  -->
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Family</title>
+    <meta name="description" content="Followers">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles/nav_bar_style.css">
+    <link rel="stylesheet" href="/styles/collections.css">
+    <link rel="stylesheet" href="/styles/followers.css">
+    <link rel="stylesheet" href="/styles/variables.css">
+</head>
+
+<body>
+    <div id="nav_bar">
+        <div id="collapsed_nav_bar">
+            <div id="to_home">
+                <a class="a_nav_bar" href="/html/home.html"><img class="nav_bar_img" id="img_family" src="/images/assets/family.svg"></a>
+            </div>
+            <div id="nav_bar_items">
+                <a class="a_nav_bar" href="">
+                    <img class="nav_bar_img" src="/images/assets/089-geography.svg">
+                </a>
+                <a class="a_nav_bar" href="/html/followers.html">
+                    <img class="nav_bar_img" src="/images/assets/035-social media.svg">
+                </a>
+                <a class="a_nav_bar" href="">
+                    <img class="nav_bar_img" src="/images/assets/023-envelopes.svg">
+                </a>
+                <a class="a_nav_bar" href="">
+                    <img class="nav_bar_img" src="/images/assets/094-notification bell.svg">
+                </a>
+            </div>
+            <div id="nav_bar_log_out">
+                <div id="nav_bar_log_out_collapsed" onclick="toExpendCloseNavBar()">
+                    <img class="nav_bar_img" src="/images/assets/039-user list.svg">
+                </div>
+                <div id="nav_bar_log_out_expended">
+                    <a href="/logout" class="a_nav_bar">
+                        <img class="nav_bar_img" src="/images/assets/053-next.svg">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="expended_nav_bar">
+            <div>
+                <a class="a_nav_bar a_nav_bar_expended" href="">
+                    <img class="nav_bar_img" src="/images/assets/089-geography.svg">
+                    <span class="span_expended_nav_bar">News</span>
+                </a>
+            </div>
+            <div>
+                <a class="a_nav_bar a_nav_bar_expended" href="/html/followers.html">
+                    <img class="nav_bar_img" src="/images/assets/035-social media.svg">
+                    <span class="span_expended_nav_bar">Friends</span>
+                </a>
+            </div>
+            <div>
+                <a class="a_nav_bar a_nav_bar_expended" href="">
+                    <img class="nav_bar_img" src="/images/assets/023-envelopes.svg">
+                    <span class="span_expended_nav_bar">Messages</span>
+                </a>
+            </div>
+            <div>
+                <a class="a_nav_bar a_nav_bar_expended" href="/logout">
+                    <img class="nav_bar_img" src="/images/assets/053-next.svg">
+                    <span class="span_expended_nav_bar">Log out</span>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+    <main>
+        <div class="container main_bg_color">
+            <div>
+                <div class="input_with_img_container">
+                    <input type="search" placeholder="Search" id="search" class="input"><img 
+                    src="/images/assets/032-search.svg" class="input_img" id="search_icon">
+                </div>
+                <button id="stop_search_button" class="button">
+                  Stop search
+                </button>
+            </div>
+            <ul id="users_container" class="followers_container">
+
+            </ul>
+        </div>
+    </main>
+    <script type="text/javascript" src="/scripts/nav_bar.js"></script>
+    <script type="text/javascript" src="/scripts/followers.js"></script>
+</body>
+
+</html>
